@@ -6,6 +6,6 @@ var ctx =canvas.getContext("2d");
 
 
 function draw(){
-   ctx.drawImage(bgimg,0,0)
+   ctx.drawImage(bgImg,0,0)
 }
 draw();
