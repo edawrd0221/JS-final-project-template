@@ -4,7 +4,11 @@
  var canvas =document.getElementById("game-canvas");
 var ctx =canvas.getContext("2d");
 
-
+//迪迪
+var enemy ={
+  x:96,
+  y:448,
+}
 function draw(){
    ctx.drawImage(bgImg,0,0)
 }
