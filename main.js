@@ -24,8 +24,8 @@ $("#game-canvas").on("mousemove",function(event)){
 
 var canvas =document.getElementById("game-canvas");
 var ctx =canvas.getContext("2d");
-event.offsetX
-event.offsetY
+
+
 //迪迪
 var enemy ={
   x:96,
