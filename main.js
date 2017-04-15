@@ -23,7 +23,7 @@ var enemy ={
 function draw(){
    ctx.drawImage(bgImg,0,0) 
   ctx.drawImage(enemyImg,enemy.x,enemy.y)
-ctx.drawImage(button,560,432)
+ctx.drawImage(button,560,432,48,48)
 }
 
 
