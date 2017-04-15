@@ -8,12 +8,12 @@ var enemyImg = document.createElement("img");
 var button = document.createElement("img");
  button.src="images/tower-btn.png"
 var lol= document.createElement("img");
- button.src="images/tower.png"
+ lol.src="images/tower.png"
 
 
 var cursur ={
   x:0,
- y:0
+  y:0
 }
 
 $("#game-canvas").on("mousemove",function(event){
@@ -33,13 +33,23 @@ var enemy ={
 };
 function draw(){
    ctx.drawImage(bgImg,0,0) 
-  ctx.drawImage(enemyImg,enemy.x,enemy.y)
-ctx.drawImage(button,560,432,48,48)
-ctx.drawImage(lol,cursur.x,cursur.y)
+   ctx.drawImage(enemyImg,enemy.x,enemy.y)
+   ctx.drawImage(button,560,432,48,48)
+   ctx.drawImage(lol,cursur.x,cursur.y)
 
 }
 
-
+function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
+    if(     pointX >= targetX
+        &&  pointX <= targetX + targetWidth
+        &&  pointY >= targetY
+        &&  pointY <= targetY + targetHeight
+    ){
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 setInterval(draw,16);
