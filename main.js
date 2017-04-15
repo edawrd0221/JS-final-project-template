@@ -16,7 +16,7 @@ var cursur ={
  y:0
 }
 
-$("#game-canvas").on("mousemove",function(event)){
+$("#game-canvas").on("mousemove",function(event){
                     cursur.y=event.offsetY
                     cursur.x=event.offsetX
 })
