@@ -1,6 +1,6 @@
 //設定畫布環境
  var bgImg = document.createElement("img");
- bgImg.src="images/map.png"
+ bgImg.src="images/map1.png"
  
 var enemyImg = document.createElement("img");
  enemyImg.src="images/jason.gif"
