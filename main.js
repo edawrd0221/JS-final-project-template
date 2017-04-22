@@ -61,7 +61,7 @@ function draw(){
 
 setInterval(draw,16);
 
-function Colilided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
+function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
     if(     pointX >= targetX
         &&  pointX <= targetX + targetWidth
         &&  pointY >= targetY
