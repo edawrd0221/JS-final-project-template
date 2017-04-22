@@ -4,6 +4,7 @@ var enemyImg = document.createElement("img")
 var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
 var tower={}
+var FPS = 60
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
@@ -18,7 +19,13 @@ var isBuild = false;
 //設定敵人
 var enemy ={
    x:96,
-   y:480-32
+   y:480-32,
+   speedX:0,
+   speedY:-64,
+   move:function(){
+   this.y=this.y+this.speedX/FPS;
+   this.x=this.x+this.speedY/FPS;
+}
 };
 
 //設定游標
