@@ -1,9 +1,9 @@
 //設定畫布環境
- var bgImg = document.createElement("img");
-var enemyImg = document.createElement("img");
+ var bgImg = document.createElement("img")
+var enemyImg = document.createElement("img")
 var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
-
+var tower={}
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
@@ -37,7 +37,12 @@ $("#game-canvas").on("click",function(event){
       if(isCollided(cursor.x,cursor.y,560,432,48,48)){
          isBuild=true;
       }
-      else{
+ else(isBuild&&!isCollid(cursor.x,cursor.y,560,432,48,48)){
+  tower.x=cursor.x
+  tower.y=cursor.y
+ }
+ 
+ else{
          isBuild = false;
       }
 })
@@ -56,7 +61,7 @@ function draw(){
 
 setInterval(draw,16);
 
-function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
+function Colilided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
     if(     pointX >= targetX
         &&  pointX <= targetX + targetWidth
         &&  pointY >= targetY
@@ -67,3 +72,4 @@ function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight)
         return false;
     }
 }
+
