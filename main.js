@@ -37,7 +37,7 @@ $("#game-canvas").on("click",function(event){
       if(isCollided(cursor.x,cursor.y,560,432,48,48)){
          isBuild=true;
       }
- else if(isBuild&&!isCollid(cursor.x,cursor.y,560,432,48,48)){
+ else if(isBuild&&!isCollided(cursor.x,cursor.y,560,432,48,48)){
   tower.x=cursor.x
   tower.y=cursor.y
  }
