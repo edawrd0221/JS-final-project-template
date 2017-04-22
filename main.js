@@ -56,7 +56,8 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
-   ctx.drawImage(bgImg,0,0);
+   enemy.move()
+ ctx.drawImage(bgImg,0,0);
    ctx.drawImage(enemyImg,enemy.x,enemy.y)
    ctx.drawImage(towerbtnImg,560,432,48,48)
 //update
@@ -67,7 +68,7 @@ function draw(){
 }
 
 
-setInterval(draw,16);
+setInterval(draw,1000/FPS);
 
 function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight) {
     if(     pointX >= targetX
