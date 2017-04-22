@@ -55,7 +55,7 @@ function draw(){
    if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
    }
-    ctx.drawImage(tower,tower.x,tower.y)
+    ctx.drawImage(towerImg,towerImg.x,towerImg.y)
 }
 
 
