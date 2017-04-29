@@ -27,7 +27,7 @@ if(isCollided(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64
     this.y=this.y+this.speedX/FPS;
    this.x=this.x+this.speedY/FPS;
 }
-};
+
 
 //設定游標
 var cursor = {
