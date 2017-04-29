@@ -29,22 +29,22 @@ var enemy ={
    this.y =enemypath[this.pathDes].y;
    this.pathDes=this.pathDes+1;
    if(enemypath[this.pathDes].x>this.x){
-     this .speedX=-64;
-     this .speedY=0;
+     this.speedX=-64;
+     this.speedY=0;
       };
    if(enemypath[this.pathDes].x<this.x){
         this.speedX=-64;
-        this .speedY=0;
+        this.speedY=0;
       };
   if(enemypath[this.pathDes].y>this.y){
       this.speedX=0;
-        this .speedY=-64;
+        this.speedY=-64;
       };
    if(enemypath[this.pathDes].y<this.y){
       this.speedX=0;
-        this .speedY=64;
+        this.speedY=64;
       };
-   
+  } 
   else{
      this.x=this.x+this.speedX/FPS;
      this.y=this.y+this.speedY/FPS;
