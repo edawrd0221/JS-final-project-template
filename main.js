@@ -23,10 +23,17 @@ var enemy ={
    speedX:0,
    speedY:-64,
    move:function(){
-if(isCollided(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
-    this.y=this.y+this.speedX/FPS;
-   this.x=this.x+this.speedY/FPS;
-}
+ move: function(){
+  if(isCollided(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
+  }
+  else{
+     this.x=this.x+this.speedX/FPS;
+     this.y=this.y+this.speedY/FPS;
+  }
+ } 
+};
+  
+
 
 
 //設定游標
