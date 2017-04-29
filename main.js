@@ -38,7 +38,7 @@ var cursor = {
 
 var enemypath=[
  {x:96,y:64},
- {x:384,y;64}
+ {x:384,y:64}
 ]
 $("#game-canvas").on("mousemove",function(event){
       cursor.x = event.offsetX
