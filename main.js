@@ -25,16 +25,34 @@ var enemy ={
    pathDes:0,
  move: function(){
   if(isCollided(enemypath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
-  }
+   this.x =enemypath[ this.pathDes].x;
+   this.y =enemypath[this.pathDes].y;
+   this.pathDes=this.pathDes+1;
+   if(enemypath[this.pathDes].x>this.x){
+     this .speedX=-64;
+     this .speedY=0;
+      };
+   if(enemypath[this.pathDes].x<this.x){
+        this.speedX=-64;
+        this .speedY=0;
+      };
+  if(enemypath[this.pathDes].y>this.y){
+      this.speedX=0;
+        this .speedY=-64;
+      };
+   if(enemypath[this.pathDes].y<this.y){
+      this.speedX=0;
+        this .speedY=64;
+      };
+   
   else{
      this.x=this.x+this.speedX/FPS;
      this.y=this.y+this.speedY/FPS;
-  }
- } 
+ 
 };
   
-
-
+      }
+      }
 
 //設定游標
 var cursor = {
