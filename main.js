@@ -23,7 +23,8 @@ var enemy ={
    speedX:0,
    speedY:-64,
    move:function(){
-   this.y=this.y+this.speedX/FPS;
+if(isCollided(enemyPath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
+    this.y=this.y+this.speedX/FPS;
    this.x=this.x+this.speedY/FPS;
 }
 };
@@ -38,7 +39,13 @@ var cursor = {
 
 var enemypath=[
  {x:96,y:64},
- {x:384,y:64}
+ {x:384,y:64},
+ {x:384,y:192},
+ {x:224,y:192},
+ {x:224,y:320},
+ {x:544,y:320},
+ {x:544,y:96},
+ 
 ]
 $("#game-canvas").on("mousemove",function(event){
       cursor.x = event.offsetX
