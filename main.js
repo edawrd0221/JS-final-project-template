@@ -5,6 +5,9 @@ var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
 var tower={}
 var FPS = 60
+var clock=0; 
+
+
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
@@ -55,7 +58,7 @@ function Enemy(){
 }
 }
 
-var enemy = new Enemy();
+var enemies =[]
 
 
 var cursor = {
@@ -99,12 +102,19 @@ $("#game-canvas").on("click",function(event){
 function draw(){
    enemy.move();
  ctx.drawImage(bgImg,0,0);
-   ctx.drawImage(enemyImg,enemy.x,enemy.y)
-   ctx.drawImage(towerbtnImg,560,432,48,48)
+ if(clock%80==0){  
+ var newEnemy=new Enemy();
+  enemies.push(newEnemy);
+}
+ ctx.drawImage(enemyImg,enemy.x,enemy.y)
+   
+ ctx.drawImage(towerbtnImg,560,432,48,48)
    if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
+    
    }
-    ctx.drawImage(towerImg,tower.x,tower.y)
+    clock+1;
+
 }
 
 
