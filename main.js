@@ -39,7 +39,7 @@ var enemy ={
       };
   if(enemypath[this.pathDes].y>this.y){
       this.speedX=0;
-        this.speedY=-64;
+        this.speedY=64;
       };
    if(enemypath[this.pathDes].y<this.y){
       this.speedX=0;
