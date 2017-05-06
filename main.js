@@ -100,13 +100,16 @@ $("#game-canvas").on("click",function(event){
 })
 
 function draw(){
-   enemy.move();
+   
  ctx.drawImage(bgImg,0,0);
  if(clock%80==0){  
  var newEnemy=new Enemy();
   enemies.push(newEnemy);
 }
- ctx.drawImage(enemyImg,enemy.x,enemy.y)
+for(var i = 0; i<enemies.length;i++){
+ enemies[i].move();
+ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
+}
    
  ctx.drawImage(towerbtnImg,560,432,48,48)
    if(isBuild){
