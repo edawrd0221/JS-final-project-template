@@ -15,16 +15,15 @@ var ctx = canvas.getContext("2d");
 
 //update
 var isBuild = false;
-
-//設定敵人
-var enemy ={
-   x:96,
-   y:480-32,
-   speedX:0,
-   speedY:-64,
-   pathDes:0,
- move: function(){
  
+//設定敵人
+function Enemy(){
+ this.x=96;
+ this.y=480-32;
+ this.speedx=0;
+ this.speedy=-64;
+ 
+ this.move = function(){ 
   if(isCollided(enemypath[this.pathDes].x,enemypath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
    this.x =enemypath[ this.pathDes].x;
    this.y =enemypath[this.pathDes].y;
@@ -51,9 +50,12 @@ var enemy ={
      this.y=this.y+this.speedY/FPS;
  
 };
-  
-      }
-      }
+ 
+ 
+}
+}
+
+
 
 
 var cursor = {
