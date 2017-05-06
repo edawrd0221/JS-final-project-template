@@ -55,7 +55,7 @@ function Enemy(){
 }
 }
 
-var enemy =new Enemy();
+var enemy = new Enemy();
 
 
 var cursor = {
