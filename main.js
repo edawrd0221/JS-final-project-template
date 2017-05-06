@@ -116,7 +116,7 @@ ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
       ctx.drawImage(towerImg,cursor.x,cursor.y)
     
    }
-    clock+1;
+   clock= clock+1;
 
 }
 
