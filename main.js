@@ -24,8 +24,8 @@ var enemy ={
    speedY:-64,
    pathDes:0,
  move: function(){
-  console.log(isCollided(enemypath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS));
-  if(isCollided(enemypath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
+ 
+  if(isCollided(enemypath[this.pathDes].x,enemypath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
    this.x =enemypath[ this.pathDes].x;
    this.y =enemypath[this.pathDes].y;
    this.pathDes=this.pathDes+1;
