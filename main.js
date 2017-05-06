@@ -23,8 +23,8 @@ var enemy ={
    speedX:0,
    speedY:-64,
    pathDes:0,
-console.log(enemypath[this.pathDes]);
  move: function(){
+  console.log(enemypath[this.pathDes]);
   if(isCollided(enemypath[this.pathDes].x,[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
    enemypath();
    this.x =enemypath[ this.pathDes].x;
@@ -72,7 +72,7 @@ var enemypath=[
  {x:224,y:192},
  {x:224,y:320},
  {x:544,y:320},
- {x:544,y:96},
+ {x:544,y:96}
  
 ]
 $("#game-canvas").on("mousemove",function(event){
