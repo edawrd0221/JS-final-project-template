@@ -55,7 +55,7 @@ function Enemy(){
 }
 }
 
-
+var enemy = enemypath();
 
 
 var cursor = {
