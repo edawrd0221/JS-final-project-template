@@ -29,7 +29,7 @@ var enemy ={
    this.y =enemypath[this.pathDes].y;
    this.pathDes=this.pathDes+1;
    if(enemypath[this.pathDes].x>this.x){
-     this.speedX=-64;
+     this.speedX=64;
      this.speedY=0;
       };
    if(enemypath[this.pathDes].x<this.x){
@@ -42,7 +42,7 @@ var enemy ={
       };
    if(enemypath[this.pathDes].y<this.y){
       this.speedX=0;
-        this.speedY=64;
+        this.speedY=-64;
       };
   } 
   else{
@@ -54,7 +54,7 @@ var enemy ={
       }
       }
 
-//設定游標
+
 var cursor = {
    x:0,
    y:0
@@ -98,7 +98,6 @@ function draw(){
  ctx.drawImage(bgImg,0,0);
    ctx.drawImage(enemyImg,enemy.x,enemy.y)
    ctx.drawImage(towerbtnImg,560,432,48,48)
-//update
    if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
    }
