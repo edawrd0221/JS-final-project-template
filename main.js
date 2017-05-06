@@ -23,8 +23,8 @@ var isBuild = false;
 function Enemy(){
  this.x=96;
  this.y=480-32;
- this.speedx=0;
- this.speedy=-64;
+ this.speedX=0;
+ this.speedY=-64;
  this.pathDes =0;
  this.move = function(){ 
   if(isCollided(enemypath[this.pathDes].x,enemypath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
