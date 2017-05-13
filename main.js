@@ -110,11 +110,22 @@ function draw(){
    }
 
  for(var i = 0; i<enemies.length;i++){
-      enemies[i].move();
+      if(enemies[i].EHP<1){
+      enemies.splice(i,1);
+      
+      }
+  else{
+  enemies[i].move();
       ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
    }
-   ctx.drawImage(towerbtnImg,560,432,48,48)
-   if(isBuild){
+ }
+  
+  ctx.drawImage(towerbtnImg,560,432,48,48)
+   
+ 
+ 
+ 
+ if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
    }
    ctx.drawImage(towerImg,tower.x,tower.y)
