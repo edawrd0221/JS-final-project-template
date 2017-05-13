@@ -3,17 +3,19 @@
 var enemyImg = document.createElement("img");
 var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
-
+var HP=100
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
 towerImg.src="images/tower.png"
-
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 var isBuild = false;
 var FPS = 60;
 var clock =0
+ctx.fillstyle="white"
+ctx.front="24px Arial"
+ctx.filltext("HP:"+HP,20,20)
 //設定敵人
 
 function Enemy(){
@@ -98,8 +100,11 @@ function draw(){
    if(clock%80==0){
       var newEnemy = new Enemy();
       enemies.push(newEnemy);
+   
+   
    }
-   for(var i = 0; i<enemies.length;i++){
+
+ for(var i = 0; i<enemies.length;i++){
       enemies[i].move();
       ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
    }
