@@ -13,8 +13,8 @@ var ctx = canvas.getContext("2d");
 var isBuild = false;
 var FPS = 60;
 var clock =0
-ctx.fillstyle="white"
-ctx.front="24px Arial"
+ctx.fillStyle="white"
+ctx.font="24px Arial"
 
 //設定敵人
 
