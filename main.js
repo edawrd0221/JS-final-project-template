@@ -114,7 +114,7 @@ ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
  ctx.drawImage(towerbtnImg,560,432,48,48)
    if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
-    
+      
    }
    clock= clock+1;
 
