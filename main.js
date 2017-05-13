@@ -4,6 +4,9 @@ var enemyImg = document.createElement("img");
 var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
 var HP=100
+var crosshairImage =document.createElemt("img")
+
+ crosshairImage ="images/crosshairImage"
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
@@ -78,7 +81,24 @@ var cursor = {
    y:0
 }
 
-var tower = {}
+var tower = {
+range:96,
+ aimingEnemyId:null,
+ searchEnemy: function(){
+ for(var i=0;i<enemy.length;i++){
+   var distance = Math.sqrt(Math.pow(this.x=enemies[i].x,2)+Math.pow(this.y=enemies[i].y,2)
+   
+                           
+                           )
+   if(distance < this.range){
+   this.aimingEnemyId=i;
+    return;
+   }
+       
+ }
+  this.aimingEnemyId = null;
+ }
+}
 
 $("#game-canvas").on("mousemove",function(event){
       cursor.x = event.offsetX
@@ -116,14 +136,18 @@ function draw(){
       }
   else{
   enemies[i].move();
-      ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
+      ctx.drawImage(document.createElemt,enemies[i].x,enemies[i].y)
    }
  }
   
   ctx.drawImage(towerbtnImg,560,432,48,48)
    
  
- 
+ tower.searchEnemy();
+ if(tower.aimingEnemyId!=null){
+  var id=tower.aimingEnemyId;
+  ctx.drawImage(crosshairImage,enemies[id].x,enemies[id].y)
+ }
  
  if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
