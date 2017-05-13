@@ -15,7 +15,7 @@ var FPS = 60;
 var clock =0
 ctx.fillstyle="white"
 ctx.front="24px Arial"
-ctx.filltext("HP:"+HP,20,20)
+ctx.fillText("HP:"+HP,20,20)
 //設定敵人
 
 function Enemy(){
