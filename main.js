@@ -15,7 +15,7 @@ var FPS = 60;
 var clock =0
 ctx.fillstyle="white"
 ctx.front="24px Arial"
-ctx.fillText("HP:"+HP,20,20)
+
 //設定敵人
 
 function Enemy(){
@@ -97,7 +97,8 @@ $("#game-canvas").on("click",function(event){
 function draw(){
    
    ctx.drawImage(bgImg,0,0);
-   if(clock%80==0){
+   ctx.fillText("HP:"+HP,20,20);
+ if(clock%80==0){
       var newEnemy = new Enemy();
       enemies.push(newEnemy);
    
