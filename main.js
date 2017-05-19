@@ -131,13 +131,12 @@ function draw(){
 
  for(var i = 0; i<enemies.length;i++){
       if(enemies[i].EHP<1){
-      enemies.splice(i,1);
-      
+      enemies.splice(i,1);   
       }
   else{
   enemies[i].move();
       ctx.drawImage(document.createElemt,enemies[i].x,enemies[i].y)
-   }
+   }      
  }
   
   ctx.drawImage(towerbtnImg,560,432,48,48)
@@ -172,5 +171,4 @@ function isCollided(pointX, pointY, targetX, targetY, targetWidth, targetHeight)
     } else {
         return false;
     }
-}
 
