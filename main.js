@@ -4,9 +4,9 @@ var enemyImg = document.createElement("img");
 var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
 var HP=100
-var crosshairImage.src =document.createElement("img")
+var crosshairImage =document.createElement("img")
 
- crosshairImage ="images/crosshairImage"
+ crosshairImage.src ="images/crosshairImage"
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
