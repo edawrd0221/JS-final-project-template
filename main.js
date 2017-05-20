@@ -135,7 +135,7 @@ function draw(){
       }
   else{
   enemies[i].move();
-      ctx.drawImage(document.createElemt,enemies[i].x,enemies[i].y)
+      ctx.drawImage(crosshairImage,enemies[i].x,enemies[i].y)
    }      
  }
   
