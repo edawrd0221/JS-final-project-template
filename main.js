@@ -187,14 +187,14 @@ function draw(){
    }
   
  
- for(var i=0;i<towers.length;i++)
+ for(var i=0;i<towers.length;i++){
  ctx.drawImage(towerImg,towers[i].x,towers[i].y)  
    towers[i].searchEnemy();
    if(towers[i].aimingEnemyId!=null){
       var id = towers[i].aimingEnemyId;
       ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
    }
-   
+}
    ctx.fillText("HP: "+HP,20,20)
    ctx.fillText("Score: "+score,20,40) 
    ctx.fillText("Money: "+money,20,60)   
