@@ -1,24 +1,25 @@
-//設定畫布環境
- var bgImg = document.createElement("img");
+var bgImg = document.createElement("img");
 var enemyImg = document.createElement("img");
 var towerbtnImg= document.createElement("img")
 var towerImg= document.createElement("img") 
-var HP=100
-var crosshairImage =document.createElement("img")
+var crosshairImage = document.createElement("img") 
 
- crosshairImage.src ="images/crosshair.png"
+crosshairImage.src = "images/crosshair.png"
 bgImg.src="images/map.png";
 enemyImg.src="images/jason.gif"
 towerbtnImg.src="images/tower-btn.png"
 towerImg.src="images/tower.png"
+
 var canvas = document.getElementById("game-canvas");
 var ctx = canvas.getContext("2d");
 var isBuild = false;
 var FPS = 60;
 var clock =0
+var HP = 100;
+var score =0;
+var money =25;
 ctx.fillStyle="white"
-ctx.font="24px Arial"
-
+ctx.font = "24px Arial"
 //設定敵人
 
 function Enemy(){
@@ -26,14 +27,16 @@ function Enemy(){
    this.y = 480-32;
    this.speedX = 0;
    this.speedY = -64;
-   this.pathDes = 0;
-  this.EHP=10;
- this.move = function(){
+   this.pathDes = 0;  
+   this.hp = 10;   
+   this.move = function(){
       if(isCollided(enemyPath[this.pathDes].x,enemyPath[this.pathDes].y,this.x,this.y,64/FPS,64/FPS)){
+         
          if(this.pathDes===enemyPath.length-1){
-           this.EHP =0;
-           HP=HP-10;
+            this.hp = 0;
+            HP = HP - 10;
          }
+         
          this.x = enemyPath[this.pathDes].x;
          this.y = enemyPath[this.pathDes].y;      
          this.pathDes = this.pathDes + 1;
@@ -53,9 +56,7 @@ function Enemy(){
          if(enemyPath[this.pathDes].y < this.y){
             this.speedX = 0;
             this.speedY = -64;
-         }
-         
-         
+         }         
       }
       else{
          this.x = this.x + this.speedX/FPS;
@@ -81,37 +82,78 @@ var cursor = {
    y:0
 }
 
-var tower = {
-range:96,
- aimingEnemyId:null,
- searchEnemy: function(){
- for(var i=0;i<enemies.length;i++){
-   var distance = Math.sqrt(Math.pow(this.x=enemies[i].x,2)+Math.pow(this.y=enemies[i].y,2)
-   
-                           
-                           )
-   if(distance < this.range){
-   this.aimingEnemyId=i;
-    return;
+function Tower(x,y){
+ this.x=x;
+ this.y=y;
+ this.range =96;
+ this.aimingEnemyId=null;
+   this.searchEnemy= function(){
+      
+      this.readyToShootTime =this.readyToShootTime - 1/FPS
+      
+      for(var i=0;i<enemies.length;i++){
+         var distance =  Math.sqrt(
+             Math.pow(this.x - enemies[i].x,2) + Math.pow(this.y - enemies[i].y,2)
+         )
+         if(distance < this.range){
+            this.aimingEnemyId = i;
+            
+            if(this.readyToShootTime <= 0){
+             this.shoot(i);
+             this.readyToShootTime = this.fireRate
+            }            
+            return;
+         }
+      }
+      this.aimingEnemyId = null;      
    }
-       
- }
-  this.aimingEnemyId = null;
- }
+   this.shoot= function(id){
+      ctx.beginPath();
+      ctx.moveTo(this.x,this.y);
+      ctx.lineTo(enemies[id].x,enemies[id].y);
+      ctx.strokeStyle = "red";
+      ctx.lineWidth = 3;
+      ctx.stroke(); 
+      enemies[id].hp = enemies[id].hp - this.damage
+   };
+  this. fireRate = 1;
+   this.readyToShootTime =1;
+   this.damage = 5
+   
 }
+var towers=[];
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $("#game-canvas").on("mousemove",function(event){
       cursor.x = event.offsetX
       cursor.y = event.offsetY
+
+
+
 })
 
 $("#game-canvas").on("click",function(event){
-        if(isCollided(cursor.x,cursor.y,560,432,48,48)){
+        if(isCollided(cursor.x,cursor.y,560,432,48,48) && money>20){
         	isBuild = true
-        }
+        money=money-20
+           }
         else if(isBuild && !isCollided(cursor.x,cursor.y,560,432,48,48)){
-        	tower.x = cursor.x-cursor.x%32;
-          tower.y = cursor.y-cursor.y%32;
+        	var newTower = newTower (cursor.x-cursor.x%32,tower.y = cursor.y-cursor.y%32); 
+         tower.push(newTower)
+        
+         
         }
         else{
           isBuild = false
@@ -121,39 +163,39 @@ $("#game-canvas").on("click",function(event){
 function draw(){
    
    ctx.drawImage(bgImg,0,0);
-   ctx.fillText("HP:"+HP,20,20);
- if(clock%80==0){
+   if(clock%80==0){
       var newEnemy = new Enemy();
       enemies.push(newEnemy);
-   
-   
    }
-
- for(var i = 0; i<enemies.length;i++){
-      if(enemies[i].EHP<1){
-      enemies.splice(i,1);   
+   for(var i = 0; i<enemies.length;i++){
+      
+      if(enemies[i].hp<1){
+         enemies.splice(i,1);         
+         money = money + 25
+         score = score + 8
       }
-  else{
-  enemies[i].move();
+      else{
+      enemies[i].move();
       ctx.drawImage(enemyImg,enemies[i].x,enemies[i].y)
-   }      
- }
-  
-  ctx.drawImage(towerbtnImg,560,432,48,48)
-   
- 
- tower.searchEnemy();
- if(tower.aimingEnemyId!=null){
-  console.log(tower.aimingEnemyId)
-  var id=tower.aimingEnemyId;
-  ctx.drawImage(crosshairImage,enemies[id].x,enemies[id].y)
- }
- 
- if(isBuild){
+      }
+   }
+   ctx.drawImage(towerbtnImg,560,432,48,48)
+   if(isBuild){
       ctx.drawImage(towerImg,cursor.x,cursor.y)
    }
-   ctx.drawImage(towerImg,tower.x,tower.y)
+  
+ 
+ for(var i=0,i<towers.length;i++)
+ ctx.drawImage(towerImg,tower[i].x,tower[i].y)  
+   towers[i].searchEnemy();
+   if(towers[i].aimingEnemyId!=null){
+      var id = towers[i].aimingEnemyId;
+      ctx.drawImage(crosshairImage, enemies[id].x,enemies[id].y)
+   }
    
+   ctx.fillText("HP: "+HP,20,20)
+   ctx.fillText("Score: "+score,20,40) 
+   ctx.fillText("Money: "+money,20,60)   
    clock = clock + 1;
    
 
