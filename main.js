@@ -153,7 +153,7 @@ $("#game-canvas").on("click",function(event){
            }
         else if(isBuild && !isCollided(cursor.x,cursor.y,560,432,48,48)){
         	var newTower = newTower (cursor.x-cursor.x%32,tower.y = cursor.y-cursor.y%32); 
-         tower.push(newTower)
+         towers.push(newTower)
         
          
         }
