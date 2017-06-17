@@ -1,4 +1,4 @@
-qqq
+//qqq
 
 var bgImg = document.createElement("img");
 var enemyImg = document.createElement("img");
