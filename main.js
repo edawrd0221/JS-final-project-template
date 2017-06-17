@@ -187,7 +187,7 @@ function draw(){
    }
   
  
- for(var i=0,i<towers.length;i++)
+ for(var i=0;i<towers.length;i++)
  ctx.drawImage(towerImg,towers[i].x,towers[i].y)  
    towers[i].searchEnemy();
    if(towers[i].aimingEnemyId!=null){
