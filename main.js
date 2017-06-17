@@ -118,7 +118,7 @@ function Tower(x,y){
       ctx.stroke(); 
       enemies[id].hp = enemies[id].hp - this.damage
    };
-  this. fireRate = 1;
+  this.fireRate = 1;
    this.readyToShootTime =1;
    this.damage = 5
    
